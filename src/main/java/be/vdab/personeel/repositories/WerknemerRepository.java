@@ -14,4 +14,8 @@ public interface WerknemerRepository extends JpaRepository<Werknemer, Long> {
     @Query("update Werknemer w set w.salaris = ?1 where w.id = ?2")
     BigDecimal updateSalaris(BigDecimal nieuwSalaris, int id);
     List<Werknemer> findAllByEmailAdresOrderByJobTitelId();
+    @Query("select w.werknemer from Werknemer w where w.chefId < ?1")
+    List<Werknemer> findOndergeschikten(int chefid);
+    @Query("select w.werknemer from Werknemer w where w.chefId > ?1")
+    List<Werknemer> findChef(int chefid);
 }
