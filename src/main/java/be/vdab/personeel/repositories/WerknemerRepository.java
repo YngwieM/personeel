@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
 
 public interface WerknemerRepository extends JpaRepository<Werknemer, Long> {
     List<Werknemer> findByJobtitelIdOrderByJobTitelId(int JobTitelId);
@@ -18,4 +17,5 @@ public interface WerknemerRepository extends JpaRepository<Werknemer, Long> {
     List<Werknemer> findOndergeschikten(int chefid);
     @Query("select w.werknemer from Werknemer w where w.chefId > ?1")
     List<Werknemer> findChef(int chefid);
+    void findById(long id);
 }

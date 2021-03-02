@@ -41,4 +41,9 @@ import java.util.List;
     public List<Werknemer> findChef(int chefid) {
         return werknemerRepository.findChef(chefid);
     }
+
+    @Override
+    public void findById(long id) {
+        werknemerRepository.findById(id);
+    }
 }

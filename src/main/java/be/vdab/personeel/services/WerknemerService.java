@@ -13,4 +13,5 @@ public interface WerknemerService {
     List<Werknemer> findAllByEmailAdresOrderByJobTitelId();
     List<Werknemer> findOndergeschikten(int chefid);
     List<Werknemer> findChef(int chefid);
+    void findById(long id);
 }
