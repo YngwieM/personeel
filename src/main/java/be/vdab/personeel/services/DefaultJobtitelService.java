@@ -17,7 +17,7 @@ class DefaultJobtitelService implements JobtitelService {
     }
 
     @Override
-    public List<Jobtitel> findAllOrderByNaam() {
-        return jobtitelRepository.findAllOrderByNaam();
+    public List<Jobtitel> findAll() {
+        return jobtitelRepository.findAll();
     }
 }

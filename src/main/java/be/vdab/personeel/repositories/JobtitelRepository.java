@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface JobtitelRepository extends JpaRepository<Jobtitel, Long> {
-    List<Jobtitel> findAllOrderByNaam();
+    List<Jobtitel> findAll();
 }
