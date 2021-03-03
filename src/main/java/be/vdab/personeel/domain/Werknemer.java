@@ -15,8 +15,6 @@ public class Werknemer {
     private String voornaam;
     private String familienaam;
     private String emailAdres;
-    private int chefId;
-    private int jobTitelId;
     @DecimalMin(value = "1.0", inclusive = false)
     private BigDecimal salaris;
 private String paswoord;
@@ -34,15 +32,13 @@ private String paswoord;
     private Werknemer werknemer;
 
     public Werknemer(String voornaam, String familienaam, String emailAdres, BigDecimal salaris,
-                     String paswoord, Date geboorte,int chefId,int jobTitelId) {
+                     String paswoord, Date geboorte) {
         this.voornaam = voornaam;
         this.familienaam = familienaam;
         this.emailAdres = emailAdres;
         this.salaris = salaris;
         this.paswoord = paswoord;
         this.geboorte = geboorte;
-        this.chefId = chefId;
-        this.jobTitelId = jobTitelId;
         setJobtitel(jobtitel);
         this.werknemers = new LinkedHashSet<>();
         setWerknemer(werknemer);
@@ -118,13 +114,6 @@ private String paswoord;
         return geboorte;
     }
 
-    public int getChefId() {
-        return chefId;
-    }
-
-    public int getJobTitelId() {
-        return jobTitelId;
-    }
 
     @Override
     public boolean equals(Object o) {

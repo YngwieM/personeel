@@ -16,15 +16,15 @@ import java.util.List;
 @RequestMapping("/")
 public class WerknemerController {
 
-    private final WerknemerService werknemerService;
-
-    public WerknemerController(WerknemerService werknemerService) {
-        this.werknemerService = werknemerService;
-    }
-    @GetMapping("werknemer")
-    public ModelAndView werknemers() {
-        return new ModelAndView("werknemer", "werknemers", werknemerService.findAll(Pageable.unpaged()));
-    }
+//    private final WerknemerService werknemerService;
+//
+//    public WerknemerController(WerknemerService werknemerService) {
+//        this.werknemerService = werknemerService;
+//    }
+//    @GetMapping("werknemer")
+//    public ModelAndView werknemers() {
+//        return new ModelAndView("werknemer", "werknemers", werknemerService.findAll(Pageable.unpaged()));
+//    }
 
 
 
