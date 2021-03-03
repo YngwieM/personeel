@@ -24,7 +24,7 @@ private String paswoord;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "jobtitelid")
     private Jobtitel jobtitel;
-    @OneToMany(mappedBy = "werknemer")
+    @OneToMany(mappedBy = "werknemers")
     @OrderBy("voornaam, familienaam")
     private Set<Werknemer> werknemers;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
