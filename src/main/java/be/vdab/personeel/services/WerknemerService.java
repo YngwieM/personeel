@@ -1,6 +1,8 @@
 package be.vdab.personeel.services;
 
 import be.vdab.personeel.domain.Werknemer;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 
 import java.math.BigDecimal;
@@ -14,4 +16,5 @@ public interface WerknemerService {
     List<Werknemer> findOndergeschikten(int chefid);
     List<Werknemer> findChef(int chefid);
     void findById(long id);
+    Page<Werknemer> findAll(Pageable pageable);
 }

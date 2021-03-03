@@ -2,6 +2,8 @@ package be.vdab.personeel.repositories;
 
 
 import be.vdab.personeel.domain.Werknemer;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -18,4 +20,6 @@ public interface WerknemerRepository extends JpaRepository<Werknemer, Long> {
     @Query("select w.werknemer from Werknemer w where w.chefId > ?1")
     List<Werknemer> findChef(int chefid);
     void findById(long id);
+    Page<Werknemer> findAll(Pageable pageable);
+
 }

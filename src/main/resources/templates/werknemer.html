@@ -1,10 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<!doctype html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments::head(title=${werknemerId} == null ?
+'Werknemer niet gevonden' : ${werknemer.naam})"></head>
 <body>
+<nav th:replace="fragments::menu"></nav>
 
+<div th:if="${werknemers}" th:object="${werknemers}">
+    <h1 th:text="*{voornaam + achternaam}"></h1>
+
+
+
+
+    <dl>
+        <dt>Voornaam</dt>
+        <dd th:text="*{getVoornaam}"></dd>
+        <dt>Familienaam</dt>
+        <dd th:text="*{getFamilienaam}"></dd>
+        <dt>Email adres</dt>
+        <dd th:text="*{getEmail}"></dd>
+        <dt>Salaris</dt>
+        <dd th:text="*{getSalaris}"></dd>
+        <dt>Jobtitel</dt>
+        <dd th:text="*{getJobtitel}"></dd>
+        <dt>Salaris</dt>
+        <dd th:text="*{getGeboorte}"></dd>
+        <dt>Chef</dt>
+        <dd th:text="*{chef.getNaam}"></dd>  // nog aanpassen(modelandvieuw + niet tonen als er geen zijn)
+        <dt>Ondergeschikten</dt>
+        <dd th:text="*{ondergeschikten.getnaam}"></dd>  // nog aanpassen(modelandvieuw + niet tonen als er geen zijn)
+
+        <img th:src="${'/images/' + werknemer.id + '.jpg'}" th:alt="${werknemer.naam}"/>
+
+        <a th:href="@{/opslag/{id}(id=*{id})}" th:text=Opslag"></a>
+
+    </dl>
+</div>
 </body>
 </html>

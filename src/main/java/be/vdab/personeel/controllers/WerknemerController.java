@@ -2,6 +2,7 @@ package be.vdab.personeel.controllers;
 
 import be.vdab.personeel.domain.Werknemer;
 import be.vdab.personeel.services.WerknemerService;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +23,7 @@ public class WerknemerController {
     }
     @GetMapping("werknemer")
     public ModelAndView werknemers() {
-        return new ModelAndView("werknemer", "werknemers", werknemerService.findAllByEmailAdresOrderByJobTitelId());
+        return new ModelAndView("werknemer", "werknemers", werknemerService.findAll(Pageable.unpaged()));
     }
 
 

@@ -2,6 +2,8 @@ package be.vdab.personeel.services;
 
 import be.vdab.personeel.domain.Werknemer;
 import be.vdab.personeel.repositories.WerknemerRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,5 +47,10 @@ import java.util.List;
     @Override
     public void findById(long id) {
         werknemerRepository.findById(id);
+    }
+
+    @Override
+    public Page<Werknemer> findAll(Pageable pageable) {
+        return werknemerRepository.findAll(pageable);
     }
 }
