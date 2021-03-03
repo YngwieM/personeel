@@ -7,14 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 public interface WerknemerService {
 
-    List<Werknemer> findByJobtitelIdOrderByJobTitelId(int JobTitelId);
+    List<Werknemer> findAll();
+    @Query("update Werknemer w set w.salaris = ?1 where w.id = ?2")
     BigDecimal updateSalaris(BigDecimal nieuwSalaris, int id);
-    List<Werknemer> findAllByEmailAdresOrderByJobTitelId();
-    List<Werknemer> findOndergeschikten(int chefid);
-    List<Werknemer> findChef(int chefid);
-    void findById(long id);
-    Page<Werknemer> findAll(Pageable pageable);
+    List <Werknemer> findById(long id);
+    Optional<Werknemer> findByChefIsNull();
 }

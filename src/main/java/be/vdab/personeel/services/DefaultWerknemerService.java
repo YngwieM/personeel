@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
+
 @Service
 @Transactional
  class DefaultWerknemerService implements WerknemerService {
@@ -20,8 +22,8 @@ import java.util.List;
     }
 
     @Override
-    public List<Werknemer> findByJobtitelIdOrderByJobTitelId(int JobTitelId) {
-        return werknemerRepository.findByJobtitelIdOrderByJobTitelId(JobTitelId);
+    public List<Werknemer> findAll() {
+        return werknemerRepository.findAll();
     }
 
     @Override
@@ -30,27 +32,12 @@ import java.util.List;
     }
 
     @Override
-    public List<Werknemer> findAllByEmailAdresOrderByJobTitelId() {
-        return werknemerRepository.findAllByEmailAdresOrderByJobTitelId();
+    public List<Werknemer> findById(long id) {
+        return werknemerRepository.findById(id);
     }
 
     @Override
-    public List<Werknemer> findOndergeschikten(int chefid) {
-        return werknemerRepository.findOndergeschikten(chefid);
-    }
-
-    @Override
-    public List<Werknemer> findChef(int chefid) {
-        return werknemerRepository.findChef(chefid);
-    }
-
-    @Override
-    public void findById(long id) {
-        werknemerRepository.findById(id);
-    }
-
-    @Override
-    public Page<Werknemer> findAll(Pageable pageable) {
-        return werknemerRepository.findAll(pageable);
+    public Optional<Werknemer> findByChefIsNull() {
+        return werknemerRepository.findByChefIsNull();
     }
 }

@@ -29,7 +29,7 @@ private String paswoord;
     private Set<Werknemer> werknemers;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "chefid")
-    private Werknemer werknemer;
+    private Werknemer chef;
 
     public Werknemer(String voornaam, String familienaam, String emailAdres, BigDecimal salaris,
                      String paswoord, Date geboorte) {
@@ -41,7 +41,7 @@ private String paswoord;
         this.geboorte = geboorte;
         setJobtitel(jobtitel);
         this.werknemers = new LinkedHashSet<>();
-        setWerknemer(werknemer);
+        setWerknemer(chef);
     }
 
     protected Werknemer() {}
@@ -74,14 +74,14 @@ private String paswoord;
     }
 
     public Werknemer getWerknemer() {
-        return werknemer;
+        return chef;
     }
 
-    public void setWerknemer(Werknemer werknemer) {
-        if (!werknemer.getWerknemers().contains(this)) {
-            werknemer.add(this);
+    public void setWerknemer(Werknemer chef) {
+        if (!chef.getWerknemers().contains(this)) {
+            chef.add(this);
         }
-        this.werknemer = werknemer;
+        this.chef = chef;
     }
 
 
