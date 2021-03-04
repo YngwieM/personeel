@@ -14,7 +14,7 @@ public class Werknemer {
     private long id;
     private String voornaam;
     private String familienaam;
-    private String emailAdres;
+    private String email;
     @DecimalMin(value = "1.0", inclusive = false)
     private BigDecimal salaris;
 private String paswoord;
@@ -31,11 +31,11 @@ private String paswoord;
     @JoinColumn(name = "chefid")
     private Werknemer chef;
 
-    public Werknemer(String voornaam, String familienaam, String emailAdres, BigDecimal salaris,
+    public Werknemer(String voornaam, String familienaam, String email, BigDecimal salaris,
                      String paswoord, Date geboorte) {
         this.voornaam = voornaam;
         this.familienaam = familienaam;
-        this.emailAdres = emailAdres;
+        this.email = email;
         this.salaris = salaris;
         this.paswoord = paswoord;
         this.geboorte = geboorte;
@@ -98,8 +98,8 @@ private String paswoord;
         return familienaam;
     }
 
-    public String getEmailAdres() {
-        return emailAdres;
+    public String getEmail() {
+        return email;
     }
 
     public BigDecimal getSalaris() {
@@ -120,11 +120,11 @@ private String paswoord;
         if (this == o) return true;
         if (!(o instanceof Werknemer)) return false;
         Werknemer werknemer = (Werknemer) o;
-        return Objects.equals(emailAdres, werknemer.emailAdres);
+        return Objects.equals(email, werknemer.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(emailAdres);
+        return Objects.hash(email);
     }
 }

@@ -8,8 +8,8 @@
 <h1>Menu</h1>
 <ul>
     <li sec:authorize="isAnonymous()"><a th:href="@{/login}">Inloggen</a></li>
-    <li sec:authorize-url="/werknemershiërarchie"><a th:href="@{/Werknemershiërarchie}">Offertes</a></li>
-    <li sec:authorize-url="/jobtitels"><a th:href="@{/jobtitels}">Werknemers</a></li>
+    <li><a th:href="@{/werknemer}">Werknemershiërarchie</a></li>
+    <li><a th:href="@{/jobtitels}">Jobtitels</a></li>
 </ul>
 <form method="post" th:action="@{/logout}" sec:authorize="isAuthenticated()">
     <button><span sec:authentication="name"></span> uitloggen</button>

@@ -13,18 +13,19 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("werknemer")
 public class WerknemerController {
 
-//    private final WerknemerService werknemerService;
-//
-//    public WerknemerController(WerknemerService werknemerService) {
-//        this.werknemerService = werknemerService;
-//    }
-//    @GetMapping("werknemer")
-//    public ModelAndView werknemers() {
-//        return new ModelAndView("werknemer", "werknemers", werknemerService.findAll(Pageable.unpaged()));
-//    }
+    private final WerknemerService werknemerService;
+
+    public WerknemerController(WerknemerService werknemerService) {
+        this.werknemerService = werknemerService;
+    }
+
+    @GetMapping
+    public ModelAndView werknemers() {
+        return new ModelAndView("werknemer","werknemers",werknemerService.findByChefIsNull());
+    }
 
 
 
