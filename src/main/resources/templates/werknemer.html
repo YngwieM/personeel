@@ -1,39 +1,39 @@
 <!doctype html>
 <html lang="nl" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments::head(title=${werknemerId} == null ?
-'Werknemer niet gevonden' : ${werknemer.naam})"></head>
+<head>
+    <title>Offertes</title>
+    <link rel="stylesheet" th:href="@{/css/security.css}"></link>
+</head>
 <body>
-<nav th:replace="fragments::menu"></nav>
 
-<div th:if="${werknemers}" th:object="${werknemers}">
-    <h1 th:text="*{voornaam}"></h1>
+<div th:each="werknemer:${werknemer}">
+    <h1 th:text="*{werknemer.getVoornaam()}"></h1>
 
 
 
 
     <dl>
         <dt>Voornaam</dt>
-        <dd th:text="*{getVoornaam}"></dd>
+        <dd th:text="*{werknemer.getVoornaam()}"></dd>
         <dt>Familienaam</dt>
-        <dd th:text="*{getFamilienaam}"></dd>
+        <dd th:text="*{werknemer.getFamilienaam()}"></dd>
         <dt>Email adres</dt>
-        <dd th:text="*{getEmail}"></dd>
+        <dd th:text="*{werknemer.getEmail()}"></dd>
         <dt>Salaris</dt>
-        <dd th:text="*{getSalaris}"></dd>
+        <dd th:text="*{werknemer.getSalaris()}"></dd>
         <dt>Jobtitel</dt>
-        <dd th:text="*{getJobtitel}"></dd>
+        <dd th:text="*{werknemer.getJobtitel()}"></dd>
         <dt>Salaris</dt>
-        <dd th:text="*{getGeboorte}"></dd>
+        <dd th:text="*{werknemer.getGeboorte()}"></dd>
         <dt>Chef</dt>
-        <dd th:text="*{chef.getNaam}"></dd>  // nog aanpassen(modelandvieuw + niet tonen als er geen zijn)
         <dt>Ondergeschikten</dt>
-        <dd th:text="*{ondergeschikten.getnaam}"></dd>  // nog aanpassen(modelandvieuw + niet tonen als er geen zijn)
+        <dd th:each="ondergeschikte:${werknemer.getWerknemer}" th:text="*{ondergeschikte.getVoornaam}"></dd>
 
-        <img th:src="${'/images/' + werknemer.id + '.jpg'}" th:alt="${werknemer.naam}"/>
+        <img th:src="${'/images/' + werknemer.getId() + '.jpg'}" th:alt="${werknemer.getVoornaam()}"/>
 
-        <a th:href="@{/opslag/{id}(id=*{id})}" th:text=Opslag"></a>
-
+<!--        <a th:href="@{/opslag/{id}(id=*{id})}" th:text=Opslag"></a>-->
     </dl>
+
 </div>
 </body>
 </html>

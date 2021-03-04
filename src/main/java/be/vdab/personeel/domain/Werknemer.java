@@ -127,4 +127,10 @@ private String paswoord;
     public int hashCode() {
         return Objects.hash(email);
     }
+
+    @Override
+    public String toString() {
+        return getVoornaam();
+    }
+
 }

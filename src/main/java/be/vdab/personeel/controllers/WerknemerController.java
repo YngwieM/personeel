@@ -22,9 +22,20 @@ public class WerknemerController {
         this.werknemerService = werknemerService;
     }
 
+//    @GetMapping
+//    public ModelAndView werknemers() {
+//        return new ModelAndView("werknemer","werknemers",werknemerService.findByChefIsNull());
+//    }
+
     @GetMapping
-    public ModelAndView werknemers() {
-        return new ModelAndView("werknemer","werknemers",werknemerService.findByChefIsNull());
+    public ModelAndView werknemer() {
+        var modelAndView = new ModelAndView("werknemer");
+
+
+        List<Werknemer> werknemer = werknemerService.findByChefIsNull();
+        modelAndView.addObject("werknemer", werknemer);
+
+        return modelAndView;
     }
 
 

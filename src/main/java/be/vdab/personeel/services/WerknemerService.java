@@ -15,5 +15,5 @@ public interface WerknemerService {
     @Query("update Werknemer w set w.salaris = ?1 where w.id = ?2")
     BigDecimal updateSalaris(BigDecimal nieuwSalaris, int id);
     List <Werknemer> findById(long id);
-    Optional<Werknemer> findByChefIsNull();
+    List<Werknemer> findByChefIsNull();
 }

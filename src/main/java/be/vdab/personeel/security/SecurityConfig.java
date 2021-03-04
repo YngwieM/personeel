@@ -28,17 +28,4 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
                                 " from werknemers where email = ?")
                       .authoritiesByUsernameQuery("select ?, 'gebruiker'");
     }
-//    @Override public void configure(WebSecurity web) {
-//        web.ignoring()
-//                .mvcMatchers("/images/**")
-//                .mvcMatchers("/css/**")
-//                .mvcMatchers("/js/**");
-//    }
-//    @Override protected void configure(HttpSecurity http) throws Exception {
-//        http.formLogin(login->login.loginPage("/login"));
-//        http.authorizeRequests(requests -> requests
-//                .mvcMatchers("/", "/login").permitAll()
-//                .mvcMatchers("/**").authenticated());
-//        http.logout(logout->logout.logoutSuccessUrl("/"));
-//    }
 }

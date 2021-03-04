@@ -5,3 +5,9 @@ input, button {
     display: block;
     margin-top: 0.4em;
 }
+.naastMekaar {
+    padding-left: 0;
+}
+.naastMekaar li {
+    display: inline;
+}

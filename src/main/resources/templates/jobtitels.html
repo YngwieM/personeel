@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<body>
+<ul >
+    <h1>Jobtitels</h1>
+</ul>
+
+
+<ul class="naastMekaar">
+
+    <li th:each="jobtitel:${jobtitels}" th:object="${jobtitel}">
+        <a th:href="@{/jobtitel/{id}(id=*{id})}" th:text="*{naam}"></a>
+    </li>
+</ul>
+
+
+</div>
+</body>
+</html>

@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="nl" xmlns:th="http://www.thymeleaf.org">
 <body>
-    <nav th:fragment="menu">
         <ul >
             <li><a th:href="@{/jobtitel}">Jobtitels</a>
             </li>
@@ -10,11 +9,11 @@
 
         <ul class="naastMekaar">
 
-            <li th:each="jobtitel:${jobtitels}" th:object="${jobtitel}">
-                <a th:href="@{/jobtitel/{id}(id=*{id})}" th:text="*{naam}"></a>
+            <li th:each="werknemer:${werknemerPerJobId}" th:object="${werknemer}">
+                <a th:href="@{/werknemer/{id}(id=*{id})}" th:text="*{naam}"></a>
             </li>
         </ul>
-    </nav>
+
 
 </div>
     </body>

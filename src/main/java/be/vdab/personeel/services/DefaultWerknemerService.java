@@ -37,7 +37,7 @@ import java.util.Optional;
     }
 
     @Override
-    public Optional<Werknemer> findByChefIsNull() {
+    public List<Werknemer> findByChefIsNull() {
         return werknemerRepository.findByChefIsNull();
     }
 }

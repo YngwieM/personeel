@@ -64,4 +64,9 @@ public class Jobtitel {
     public int hashCode() {
         return Objects.hash(naam);
     }
+
+    @Override
+    public String toString() {
+        return getNaam();
+    }
 }
