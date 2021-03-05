@@ -13,7 +13,7 @@ public interface WerknemerService {
 
     List<Werknemer> findAll();
     @Query("update Werknemer w set w.salaris = ?1 where w.id = ?2")
-    BigDecimal updateSalaris(BigDecimal nieuwSalaris, int id);
+    BigDecimal updateSalaris(BigDecimal nieuwSalaris, long id);
     List <Werknemer> findById(long id);
     List<Werknemer> findByChefIsNull();
 }

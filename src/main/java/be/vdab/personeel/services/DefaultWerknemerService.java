@@ -27,7 +27,7 @@ import java.util.Optional;
     }
 
     @Override
-    public BigDecimal updateSalaris(BigDecimal nieuwSalaris, int id) {
+    public BigDecimal updateSalaris(BigDecimal nieuwSalaris, long id) {
         return werknemerRepository.updateSalaris(nieuwSalaris,id);
     }
 
