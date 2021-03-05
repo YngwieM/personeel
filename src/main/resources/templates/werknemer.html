@@ -52,8 +52,9 @@
         <dt>Salaris</dt>
         <dd th:text="*{werknemers.getGeboorte()}"></dd>
         <dt>Chef</dt>
-        <dd th:each="chef:${werknemers.getWerknemer}" th:text="*{chef.getVoornaam}"></dd>
+        <dd th:each="chef:${werknemers.getWerknemer()}" th:text="*{chef.getVoornaam}"></dd>
         <dt>Ondergeschikten</dt>
+
 
         <img th:src="${'/images/' + werknemers.getId() + '.jpg'}" th:alt="${werknemers.getVoornaam()}"/>
 
