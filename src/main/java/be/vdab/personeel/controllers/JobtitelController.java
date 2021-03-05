@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@RequestMapping("jobtitels")
+@RequestMapping("jobtitel")
 public class JobtitelController {
 
         private final JobtitelRepository jobtitelRepository;
@@ -30,7 +30,7 @@ public class JobtitelController {
     }
 
 
-    @GetMapping("jobtitel/{id}")
+    @GetMapping("{id}")
     public ModelAndView jobtitel(@PathVariable long id) {
         var modelAndView = new ModelAndView("jobtitel");
 
