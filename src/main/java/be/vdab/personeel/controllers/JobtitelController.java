@@ -1,5 +1,6 @@
 package be.vdab.personeel.controllers;
 
+import be.vdab.personeel.domain.Jobtitel;
 import be.vdab.personeel.domain.Werknemer;
 import be.vdab.personeel.repositories.JobtitelRepository;
 import be.vdab.personeel.repositories.WerknemerRepository;
@@ -33,8 +34,8 @@ public class JobtitelController {
     @GetMapping("{id}")
     public ModelAndView jobtitel(@PathVariable long id) {
         var modelAndView = new ModelAndView("jobtitel");
-
-        List<Werknemer> werknemersPerJobtitel = werknemerRepository.findByJobtitel(id);
+        List <Jobtitel> jobtitel = jobtitelRepository.findAllById(id);
+        List<Werknemer> werknemersPerJobtitel = werknemerRepository.findByJobtitel(jobtitel.get(0));
         modelAndView.addObject("werknemerPerJobId",werknemersPerJobtitel);
         return modelAndView;
     }

@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface JobtitelRepository extends JpaRepository<Jobtitel, Long> {
     List<Jobtitel> findAll();
+    List<Jobtitel> findAllById(long id);
 }

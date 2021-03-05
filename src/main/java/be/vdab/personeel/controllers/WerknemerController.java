@@ -1,5 +1,6 @@
 package be.vdab.personeel.controllers;
 
+import be.vdab.personeel.domain.Jobtitel;
 import be.vdab.personeel.domain.Werknemer;
 import be.vdab.personeel.services.WerknemerService;
 import org.springframework.data.domain.Pageable;
@@ -35,6 +36,15 @@ public class WerknemerController {
         List<Werknemer> werknemer = werknemerService.findByChefIsNull();
         modelAndView.addObject("werknemer", werknemer);
 
+        return modelAndView;
+    }
+
+    @GetMapping("{id}")
+    public ModelAndView jobtitel(@PathVariable long id) {
+        var modelAndView = new ModelAndView("werknemer");
+
+        List<Werknemer> werknemerPerId = werknemerService.findById(id);
+        modelAndView.addObject("werknemerPerId",werknemerPerId);
         return modelAndView;
     }
 

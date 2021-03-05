@@ -9,6 +9,32 @@
 <div th:each="werknemer:${werknemer}">
     <h1 th:text="*{werknemer.getVoornaam()}"></h1>
 
+    <dl>
+        <dt>Voornaam</dt>
+        <dd th:text="*{werknemer.getVoornaam()}"></dd>
+        <dt>Familienaam</dt>
+        <dd th:text="*{werknemer.getFamilienaam()}"></dd>
+        <dt>Email adres</dt>
+        <dd th:text="*{werknemer.getEmail()}"></dd>
+        <dt>Salaris</dt>
+        <dd th:text="*{werknemer.getSalaris()}"></dd>
+        <dt>Jobtitel</dt>
+        <dd th:text="*{werknemer.getJobtitel()}"></dd>
+        <dt>Salaris</dt>
+        <dd th:text="*{werknemer.getGeboorte()}"></dd>
+        <dt>Chef</dt>
+        <dt>Ondergeschikten</dt>
+        <dd th:each="ondergeschikte:${werknemer.getWerknemer}" th:text="*{ondergeschikte.getVoornaam}"></dd>
+
+        <img th:src="${'/images/' + werknemer.getId() + '.jpg'}" th:alt="${werknemer.getVoornaam()}"/>
+
+<!--        <a th:href="@{/opslag/{id}(id=*{id})}" th:text=Opslag"></a>-->
+    </dl>
+</div>
+
+<div th:each="werknemer:${werknemerPerId}">
+    <h1 th:text="*{werknemer.getVoornaam()}"></h1>
+
 
 
 
@@ -31,9 +57,10 @@
 
         <img th:src="${'/images/' + werknemer.getId() + '.jpg'}" th:alt="${werknemer.getVoornaam()}"/>
 
-<!--        <a th:href="@{/opslag/{id}(id=*{id})}" th:text=Opslag"></a>-->
+<!--                <a th:href="@{/opslag/{id}(id=*{id})}" th:text=Opslag"></a>-->
     </dl>
 
 </div>
+
 </body>
 </html>

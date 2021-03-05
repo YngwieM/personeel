@@ -1,6 +1,7 @@
 package be.vdab.personeel.repositories;
 
 
+import be.vdab.personeel.domain.Jobtitel;
 import be.vdab.personeel.domain.Werknemer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,5 +18,5 @@ public interface WerknemerRepository extends JpaRepository<Werknemer, Long> {
     BigDecimal updateSalaris(BigDecimal nieuwSalaris, int id);
     List <Werknemer> findById(long id);
     List <Werknemer> findByChefIsNull();
-    List <Werknemer> findByJobtitel(long id);
+    List <Werknemer> findByJobtitel(Jobtitel jobtitel);
 }

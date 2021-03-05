@@ -10,7 +10,7 @@
         <ul class="naastMekaar">
 
             <li th:each="werknemer:${werknemerPerJobId}" th:object="${werknemer}">
-                <a th:href="@{/werknemer/{id}(id=*{id})}" th:text="*{naam}"></a>
+                <a th:href="@{/werknemer/{id}(id=*{id})}" th:text="*{voornaam}"></a>
             </li>
         </ul>
 
