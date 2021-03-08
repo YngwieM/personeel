@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("jobtitel")
 public class JobtitelController {
 
-        private final JobtitelRepository jobtitelRepository;
+        private final JobtitelRepository jobtitelRepository;    //service ipv repository
         private final WerknemerRepository werknemerRepository;
 
     public JobtitelController(JobtitelRepository jobtitelRepository, WerknemerRepository werknemerRepository) {
