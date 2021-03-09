@@ -20,11 +20,6 @@ import java.util.List;
 
 
     @Override
-    public Werknemer findByChefIsNull() {
-        return werknemerRepository.findByChefIsNull().get();
-    }
-
-    @Override
     public Werknemer findById(long id) {
         return werknemerRepository.findById(id).get();
     }
