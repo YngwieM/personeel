@@ -41,9 +41,6 @@ public class OpslagController {
         Werknemer byId = werknemerService.findById(id);
         byId.setSalaris(form.getNieuwSalaris());
         werknemerService.updateWerknemer(byId);
-
-
-
         return new ModelAndView("redirect:/opslag/{id}");
     }
 

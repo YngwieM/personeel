@@ -28,7 +28,6 @@ public class WerknemerController {
     public ModelAndView jobtitel(@PathVariable long id) {
         var modelAndView = new ModelAndView("werknemer");
 
-
         Werknemer werknemerPerId = werknemerService.findById(id);
         modelAndView.addObject("werknemerPerId",werknemerPerId);
 
