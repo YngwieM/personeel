@@ -6,7 +6,7 @@ import java.util.List;
 
 
 public interface WerknemerService {
-    Werknemer findByChefIsNull();
+
 Werknemer findById(long id);
     List<Werknemer> findByChefId(Long chefId);
     List <Werknemer> findByJobtitel(Jobtitel jobtitel);

@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.math.BigDecimal;
-import java.util.List;
 
 @Controller
 @RequestMapping("opslag")
@@ -37,7 +36,7 @@ public class OpslagController {
 
 
     @PostMapping("{id}/opslag")
-    public ModelAndView opslagVoltooien(@PathVariable Long id, @Valid OpslagForm form, Errors errors) {
+    public ModelAndView opslagVoltooien(@PathVariable Long id, @Valid OpslagForm form) {
         Werknemer byId = werknemerService.findById(id);
         byId.setSalaris(form.getNieuwSalaris());
         werknemerService.updateWerknemer(byId);

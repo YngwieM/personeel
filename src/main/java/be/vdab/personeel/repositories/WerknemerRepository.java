@@ -12,6 +12,5 @@ import java.util.Optional;
 
 public interface WerknemerRepository extends JpaRepository<Werknemer, Long> {
     List<Werknemer> findByChefId(Long chefId);
-    Optional <Werknemer> findByChefIsNull();
     List <Werknemer> findByJobtitel(Jobtitel jobtitel);
 }
