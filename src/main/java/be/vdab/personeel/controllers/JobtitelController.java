@@ -2,8 +2,8 @@ package be.vdab.personeel.controllers;
 
 import be.vdab.personeel.domain.Jobtitel;
 import be.vdab.personeel.domain.Werknemer;
-import be.vdab.personeel.repositories.JobtitelRepository;
-import be.vdab.personeel.repositories.WerknemerRepository;
+import be.vdab.personeel.services.JobtitelService;
+import be.vdab.personeel.services.WerknemerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,26 +16,26 @@ import java.util.List;
 @RequestMapping("jobtitel")
 public class JobtitelController {
 
-        private final JobtitelRepository jobtitelRepository;    //service ipv repository
-        private final WerknemerRepository werknemerRepository;
+        private final JobtitelService jobtitelService;
+        private final WerknemerService werknemerService;
 
-    public JobtitelController(JobtitelRepository jobtitelRepository, WerknemerRepository werknemerRepository) {
-        this.jobtitelRepository = jobtitelRepository;
-        this.werknemerRepository = werknemerRepository;
+    public JobtitelController(JobtitelService jobtitelService, WerknemerService werknemerService) {
+        this.jobtitelService = jobtitelService;
+        this.werknemerService = werknemerService;
     }
 
 
     @GetMapping
     public ModelAndView jobtitels() {
-        return new ModelAndView("jobtitels", "jobtitels", jobtitelRepository.findAll());
+        return new ModelAndView("jobtitels", "jobtitels", jobtitelService.findAll());
     }
 
 
     @GetMapping("{id}")
     public ModelAndView jobtitel(@PathVariable long id) {
         var modelAndView = new ModelAndView("jobtitel");
-        List <Jobtitel> jobtitel = jobtitelRepository.findAllById(id);
-        List<Werknemer> werknemersPerJobtitel = werknemerRepository.findByJobtitel(jobtitel.get(0));
+        Jobtitel jobtitel = jobtitelService.findById(id);
+        List<Werknemer> werknemersPerJobtitel = werknemerService.findByJobtitel(jobtitel);
         modelAndView.addObject("werknemerPerJobId",werknemersPerJobtitel);
         return modelAndView;
     }

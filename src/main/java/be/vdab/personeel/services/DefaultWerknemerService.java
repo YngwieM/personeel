@@ -1,5 +1,6 @@
 package be.vdab.personeel.services;
 
+import be.vdab.personeel.domain.Jobtitel;
 import be.vdab.personeel.domain.Werknemer;
 import be.vdab.personeel.repositories.WerknemerRepository;
 import org.springframework.data.domain.Page;
@@ -21,23 +22,29 @@ import java.util.Optional;
         this.werknemerRepository = werknemerRepository;
     }
 
+
     @Override
-    public List<Werknemer> findAll() {
-        return werknemerRepository.findAll();
+    public Werknemer findByChefIsNull() {
+        return werknemerRepository.findByChefIsNull().get();
     }
 
     @Override
-    public BigDecimal updateSalaris(BigDecimal nieuwSalaris, long id) {
-        return werknemerRepository.updateSalaris(nieuwSalaris,id);
+    public Werknemer findById(long id) {
+        return werknemerRepository.findById(id).get();
     }
 
     @Override
-    public List<Werknemer> findById(long id) {
-        return werknemerRepository.findById(id);
+    public List<Werknemer> findByChefId(Long chefId) {
+        return werknemerRepository.findByChefId(chefId);
     }
 
     @Override
-    public List<Werknemer> findByChefIsNull() {
-        return werknemerRepository.findByChefIsNull();
+    public List<Werknemer> findByJobtitel(Jobtitel jobtitel) {
+        return werknemerRepository.findByJobtitel(jobtitel);
+    }
+
+    @Override
+    public void updateWerknemer(Werknemer werknemer) {
+     werknemerRepository.save(werknemer);
     }
 }

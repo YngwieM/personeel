@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface WerknemerService {
-    Optional <Werknemer> findByChefIsNull();
-    Optional<Werknemer> findById(long id);
+    Werknemer findByChefIsNull();
+Werknemer findById(long id);
     List<Werknemer> findByChefId(Long chefId);
     List <Werknemer> findByJobtitel(Jobtitel jobtitel);
     void updateWerknemer(Werknemer werknemer);

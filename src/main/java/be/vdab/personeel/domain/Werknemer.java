@@ -114,6 +114,9 @@ private String paswoord;
         return geboorte;
     }
 
+    public void setSalaris(BigDecimal salaris) {
+        this.salaris = salaris;
+    }
 
     @Override
     public boolean equals(Object o) {

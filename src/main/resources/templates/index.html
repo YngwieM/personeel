@@ -8,7 +8,7 @@
 <h1>Menu</h1>
 <ul>
     <li sec:authorize="isAnonymous()"><a th:href="@{/login}">Inloggen</a></li>
-    <li><a th:href="@{/werknemer}">Werknemershiërarchie</a></li>
+    <li><a th:href="@{/werknemer/1}">Werknemershiërarchie</a></li>
     <li><a th:href="@{/jobtitel}">Jobtitels</a></li>
 </ul>
 <form method="post" th:action="@{/logout}" sec:authorize="isAuthenticated()">

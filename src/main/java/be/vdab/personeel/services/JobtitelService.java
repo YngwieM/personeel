@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface JobtitelService {
     List<Jobtitel> findAll();
+    Jobtitel findById(long id);
 }

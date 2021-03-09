@@ -4,19 +4,19 @@
 <body>
 
 
-<div th:each="werknemers:${werknemerPerId}">
-    <h1 th:text="*{'Opslag voor' + ' ' + werknemers.getVoornaam() + ' ' + werknemers.getFamilienaam()}"></h1>
+<div th:object="${werknemerPerId}">
+    <h1 th:text="*{'Opslag voor' + ' ' + getVoornaam() + ' ' + getFamilienaam()}"></h1>
 
 
 
 
     <dl>
         <dt>Huidig salaris</dt>
-        <dd th:text="*{werknemers.getSalaris()}"></dd>
+        <dd th:text="*{getSalaris()}"></dd>
     </dl>
 
 
-    <form method="post" th:object="${opslagForm}" th:action="@{/opslag/{id}/opslag(id=${werknemers.id})}">
+    <form method="post" th:object="${mijnForm}" th:action="@{/opslag/{id}/opslag(id=${werknemerPerId.getId()})}">
         <label autofocus required></label>
         <label>Bedrag:<span th:errors="*{nieuwSalaris}"></span>
             <input th:field="*{nieuwSalaris}" autofocus type="number" required min="1">

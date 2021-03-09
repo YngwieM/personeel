@@ -20,4 +20,9 @@ class DefaultJobtitelService implements JobtitelService {
     public List<Jobtitel> findAll() {
         return jobtitelRepository.findAll();
     }
+
+    @Override
+    public Jobtitel findById(long id) {
+        return jobtitelRepository.findById(id).get();
+    }
 }

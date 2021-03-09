@@ -6,64 +6,33 @@
 </head>
 <body>
 
-<div th:each="werknemer:${werknemer}">
-    <h1 th:text="*{werknemer.getVoornaam() + ' ' + werknemer.getFamilienaam()}"></h1>
-
-    <dl>
-        <dt>Voornaam</dt>
-        <dd th:text="*{werknemer.getVoornaam()}"></dd>
-        <dt>Familienaam</dt>
-        <dd th:text="*{werknemer.getFamilienaam()}"></dd>
-        <dt>Email adres</dt>
-        <dd th:text="*{werknemer.getEmail()}"></dd>
-        <dt>Salaris</dt>
-        <dd th:text="*{werknemer.getSalaris()}"></dd>
-        <dt>Jobtitel</dt>
-        <dd th:text="*{werknemer.getJobtitel()}"></dd>
-        <dt>Salaris</dt>
-        <dd th:text="*{werknemer.getGeboorte()}"></dd>
-        <dt>Chef</dt>
-        <dd th:each="chef:${werknemer.getWerknemer}" th:text="*{chef.getVoornaam}"></dd>
-        <dt>Ondergeschikten</dt>
-
-        <img th:src="${'/images/' + werknemer.getId() + '.jpg'}" th:alt="${werknemer.getVoornaam()}"/>
-
-<!--        <a th:href="@{/opslag/{id}(id=*{werknemer.getId()})}" th:text="Opslag"></a>-->
-        <!--        Deze werkt niet, weet niet waarom-->
-    </dl>
-</div>
-
-<div th:each="werknemers:${werknemerPerId}">
-    <h1 th:text="*{werknemers.getVoornaam() + ' ' + werknemers.getFamilienaam()}"></h1>
-
-
+<div th:object="${werknemerPerId}">
+    <h1 th:text="*{getVoornaam() + ' ' + getFamilienaam()}"></h1>
 
 
     <dl>
         <dt>Voornaam</dt>
-        <dd th:text="*{werknemers.getVoornaam()}"></dd>
+        <dd th:text="*{getVoornaam()}"></dd>
         <dt>Familienaam</dt>
-        <dd th:text="*{werknemers.getFamilienaam()}"></dd>
+        <dd th:text="*{getFamilienaam()}"></dd>
         <dt>Email adres</dt>
-        <dd th:text="*{werknemers.getEmail()}"></dd>
+        <dd th:text="*{getEmail()}"></dd>
         <dt>Salaris</dt>
-        <dd th:text="*{werknemers.getSalaris()}"></dd>
+        <dd th:text="*{getSalaris()}"></dd>
         <dt>Jobtitel</dt>
-        <dd th:text="*{werknemers.getJobtitel()}"></dd>
+        <dd th:text="*{getJobtitel()}"></dd>
         <dt>Salaris</dt>
-        <dd th:text="*{werknemers.getGeboorte()}"></dd>
+        <dd th:text="*{getGeboorte()}"></dd>
         <dt>Chef</dt>
-        <dd th:each="chef:${werknemers.getWerknemer()}" th:text="*{chef.getVoornaam}"></dd>
+        <dd th:each="baas:${werknemerPerId.getWerknemer()}" th:text="*{getVoornaam()}"></dd>
         <dt>Ondergeschikten</dt>
+        <dd th:each="onder:${ondergeschikten}" th:text="*{getVoornaam}"></dd>
 
-
-        <img th:src="${'/images/' + werknemers.getId() + '.jpg'}" th:alt="${werknemers.getVoornaam()}"/>
-
-<!--        <a th:href="@{/opslag/{id}(id=*{werknemers.getId()})}" th:text=Opslag"></a>-->
-<!--        Deze werkt niet, weet niet waarom-->
 
     </dl>
+<!--    <img th:src="${'/images/' + *{getId()} + '.jpg'}" th:alt="*{getVoornaam()}"/>-->
 
+    <a th:href="@{/opslag/{id}(id=*{getId()})}" th:text="Opslag"></a>
 </div>
 
 </body>
