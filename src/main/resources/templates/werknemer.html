@@ -24,14 +24,14 @@
         <dt>Salaris</dt>
         <dd th:text="*{getGeboorte()}"></dd>
         <dt>Chef</dt>
-        <dd th:each="baas:${werknemerPerId.getWerknemer()}" th:text="*{getVoornaam()}"></dd>
+        <dd th:each="baas:${werknemerPerId.getWerknemer()}" th:text="*{baas.getVoornaam}"></dd>
         <dt>Ondergeschikten</dt>
-        <dd th:each="onder:${ondergeschikten}" th:text="*{getVoornaam}"></dd>
+        <dd th:each="onder:${ondergeschikten}" th:text="*{onder.getVoornaam}"></dd>
 
 
     </dl>
-<!--    <img th:src="${'/images/' + *{getId()} + '.jpg'}" th:alt="*{getVoornaam()}"/>-->
-
+    <img th:src="*{'/images/' + getId() + '.jpg'}" th:alt="*{getVoornaam()}"/>
+<br>
     <a th:href="@{/opslag/{id}(id=*{getId()})}" th:text="Opslag"></a>
 </div>
 
