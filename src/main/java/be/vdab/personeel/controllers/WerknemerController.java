@@ -23,28 +23,11 @@ public class WerknemerController {
         this.werknemerService = werknemerService;
     }
 
-//    @GetMapping
-//    public ModelAndView werknemers() {
-//        return new ModelAndView("werknemer","werknemers",werknemerService.findByChefIsNull());
-//    }
-
-//    @GetMapping
-//    public ModelAndView werknemer() {
-//        var modelAndView = new ModelAndView("werknemer");
-//
-//
-//        List<Werknemer> werknemer = werknemerService.findByChefIsNull();
-//        modelAndView.addObject("werknemer", werknemer);
-//
-//        return modelAndView;
-//    }
 
     @GetMapping("{id}")
     public ModelAndView jobtitel(@PathVariable long id) {
         var modelAndView = new ModelAndView("werknemer");
 
-//        Werknemer chef = werknemerService.findByChefIsNull();
-//        modelAndView.addObject("chef", chef);
 
         Werknemer werknemerPerId = werknemerService.findById(id);
         modelAndView.addObject("werknemerPerId",werknemerPerId);
